@@ -9,8 +9,8 @@ namespace Prevod_bankoveho_uctu
         public void Main(string[] args)
         {
            string folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string inputFileName = "uzivatelske ucty.txt";
-            string outputFileName = "info. o uzivatelovi.txt";
+            string inputFileName = "UzuvatelskeUcty.txt";
+            string outputFileName = "InfoOpouzivatelovi.txt";
 
             string inputFile = Path.Combine(folder, inputFileName);
             string outputFile = Path.Combine(folder, outputFileName);
@@ -95,16 +95,18 @@ namespace Prevod_bankoveho_uctu
             File.AppendAllLines(outputFile, zapis);
 
             Console.WriteLine("\nÚdaje boli uložené.");
+
+        
                         
             while (true)
             {
                 Console.WriteLine("\nNapíšte 'moje udaje' pre zobrazenie údajov alebo 'esc' pre ukončenie.");
                 Console.Write("> ");
 
-                string prikaz = Console.ReadLine();
-                string prikaz1 = prikaz.ToLower();
+                string prikaz = Console.ReadLine().ToLower();
+                
 
-                if (prikaz1 == "moje udaje")
+                if (prikaz == "moje udaje")
                 {
                     if (File.Exists(outputFile))
                     {
@@ -124,7 +126,7 @@ namespace Prevod_bankoveho_uctu
                 else if (prikaz == "esc")
                 {
                     Console.WriteLine("Program bol ukončený.");
-                    break;
+                   
                 }
                 else
                 {

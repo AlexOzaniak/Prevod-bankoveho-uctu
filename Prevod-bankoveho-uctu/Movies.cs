@@ -16,6 +16,27 @@ namespace Prevod_bankoveho_uctu
             if (!File.Exists(fileLocale))
             {
                 Console.WriteLine("Súbor s používateľskými filmami neexistuje.");
+                Thread.Sleep(1100);
+                Console.Clear();
+               
+                Console.WriteLine(" Vytvaram Subor");
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+
+                    Console.Write("<>");
+                    Thread.Sleep(300);
+                }
+                File.Create(fileLocale);
+                if (File.Exists(fileLocale))
+                {
+                    Console.WriteLine("Subor bol Uspesne vytvoreny");
+                }
+                else
+                {
+                    Console.WriteLine("Error 6767 Subor nie je mozne vytvorit");
+                }
+                Console.ResetColor();
                 Console.ReadKey();
                 return;
             }
@@ -76,17 +97,16 @@ namespace Prevod_bankoveho_uctu
                 Console.WriteLine("4. Nápoje - Coca Cola, Nestea, Minerálka - 2,50 eur");
                 Console.WriteLine("Zadajte číslo snacku alebo napíšte 'to je všetko'.");
 
+                bool status = true;
                 while (true)
                 {
                     Console.Write("> ");
                     string snackChoice = Console.ReadLine();
+                   
 
-                    if (snackChoice.ToLower() == "to je všetko")
-                    {
-                        
-                    }
 
                     string snackName = "";
+                    
 
                     switch (snackChoice)
                     {
@@ -102,6 +122,7 @@ namespace Prevod_bankoveho_uctu
                         case "4":
                             snackName = "Nápoje";
                             break;
+                            
                         default:
                             Console.WriteLine("Neplatný výber, skúste znova.");
                             continue;
